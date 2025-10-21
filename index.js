@@ -45,3 +45,25 @@ const bookStore = {
 
 // Write your code here!
 
+const bookStoreTitle = document.querySelector("#header");
+bookStoreTitle.textContent = bookStore.name;
+
+bookStore.books.forEach(book => {
+    const bookList = document.querySelector("#book-list");
+
+    const bookContainer = document.createElement("li");
+    const bookTitle = document.createElement("h3");
+    const bookAuthor = document.createElement("p");
+    const bookImage = document.createElement("img");
+
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = `by ${book.author}`;
+    bookImage.src = book.imageUrl;
+    bookImage.alt = `Cover image of the book ${book.title}`;
+
+    bookContainer.append(bookTitle);
+    bookContainer.append(bookAuthor);
+    bookContainer.append(bookImage);
+
+    bookList.append(bookContainer);
+});
